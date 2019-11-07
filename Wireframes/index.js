@@ -1,3 +1,40 @@
+function renderStartView() {
+  // this function will be responsible for rendering the start view in
+  // the DOM
+  console.log('`renderStartView` ran');
+}
+
+function renderQuestionView {
+  // this function will be responsible for rendering the question view in
+  // the DOM
+  console.log('`renderQuestionView` ran');
+}
+
+function renderFeedbackView { 
+  // this function will be responsible for rendering the feedback view in
+  // the DOM
+  console.log('`renderFeedbackView` ran');
+}
+
+function renderFinalView {
+  // this function will be responsible for rendering the final view in
+  // the DOM
+  console.log('`renderFinalView` ran');
+}
+
+function checkAnswer {
+  // this function will be responsible for checking whether the submitted answer 
+  // is correct. It will call renderFeedbackView with different parameters depending 
+  // on correctness and incrementing the question count by 1 if correct
+  console.log('`checkAnswer` ran');
+}
+
+function updateScore {
+  // this function is responsible for incrementing the score by 1 and will be 
+  // called if the correct answer is submitted
+  console.log('`updateScore` ran');
+}
+
 //question database
 const STORE = [
     {
