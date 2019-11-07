@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+
+/* styling for constant elements of quiz (Heading, background, and button) */
+html {
+    background-image: url('/Users/MelanieLee/Projects/Christmas-Tune-Quiz/QuizPhotos/snowflakes.jpeg');
+    background-repeat: repeat;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue {
+    background-color: darkblue;
+}
+
+.heading {
+    display: flex;
+    height:50px;
+    width: 300px;
+    margin-top: 30px;
+    color: white;
+    font-size: 25px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button {
+    height: 50px;
+    width: 150px;
+}
+
+.rounded-corner {
+    border-radius: 25px;
+}
+
+/* below styling is for start view */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-image, .button {
+    color: white;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.start-image {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    color: black;
+}
+
+.instructions { 
+    height: 75%;
+    width: 80%;
+    background-color: whitesmoke;
+    opacity: 80%;
+    text-align: center;
+    padding: 15px 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Mobile Phones*/
+@media screen and (max-width: 620px) {
+    .heading {
+        height:50px;
+        width: 200px;
+        margin-top: 30px;
+        font-size: 18px;
+    };
+    }
+
+/* Tablets, Laptops, Desktops */
+@media screen and (min-width: 621px) {
+    .main, .start-image {
+        width: 80%;
+    };
+}
