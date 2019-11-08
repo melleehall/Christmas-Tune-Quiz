@@ -5,23 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Christmas Tunes Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <header>
             <h1 class="heading blue rounded-corner">Christmas Tunes Quiz</h1>
+            <ul class="score-question">
+                <li> Score: <span class="js-score"> 0 </span> </li>
+                <li> Question: <span class="js-questionNum"> 0</span>/6 </li>
+            </ul>
         </header>
         <main class="main">
             <div class="start-image blue rounded-corner">
-                <div class="instructions rounded-corner"> <br> It's the most wonderful time of the year!  Let's see how wonderful your knowledge of Christmas Tune Trivia is.  Press START to proceed through a series of 6 questions and learn fun facts along the way. </div>
+                <p class="instructions rounded-corner"> <br> It's the most wonderful time of the year!  Let's see how wonderful your knowledge of Christmas Tune Trivia is.  Press "START" to proceed through a series of six questions and learn fun facts along the way. </p>
+                <form class="questions rounded-corner"> <br> 
+                    <legend class="question">Question one about Christmas tunes?</legend> <br>
+                        <input type="radio" name="christmas-tunes-trivia" id="ans-1" value="0" checked>
+                        <label for="ans-1">Answer One.</label>
+                        <br>
+                        <input type="radio" name="christmas-tunes-trivia" id="ans-2" value="1">
+                        <label for="ans-2">Answer two.</label>
+                        <br>
+                        <input type="radio" name="christmas-tunes-trivia" id="ans-3" value="2">
+                        <label for="ans-3">Answer three.</label>
+                        <br>
+                        <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
+                        <label for="ans-4">Answer four.</label>
+                </form>
+                <div class='feedback'>
+                    <img src="QuizPhotos/HappyTree.jpg" alt="happy tree" class="feedback-photo">
+                    <p class="correct-answer rounded-corner"> <span class="js-correctness"> Correct! </span> The correct answer with explanation. </p>
+                </div>
             </div>
-            <div class="button blue rounded-corner"> <br> Start quiz. </div>
-        </main>
-    </div>
+            <button role="button" class="button blue rounded-corner"> START </button>
+    </main>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="index.js"></script>
-    hi
 </body>
 </html>

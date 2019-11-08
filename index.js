@@ -1,6 +1,53 @@
-'use strict';
+// //initialize variables to store current score and question
+// let score = 0;
+// let questionNum = 0;
 
-// question and answer database
+// function renderStartView() {
+//   // this function will be responsible for rendering the start view in
+//   // the DOM
+//   console.log('`renderStartView` ran');
+// }
+
+// function renderQuestionView {
+//   // this function will be responsible for rendering the question view in
+//   // the DOM
+//   console.log('`renderQuestionView` ran');
+// }
+
+// function renderFeedbackView { 
+//   // this function will be responsible for rendering the feedback view in
+//   // the DOM
+//   console.log('`renderFeedbackView` ran');
+// }
+
+// function renderFinalView {
+//   // this function will be responsible for rendering the final view in
+//   // the DOM
+//   console.log('`renderFinalView` ran');
+// }
+
+// function checkAnswer {
+//   // this function will be responsible for checking whether the submitted answer 
+//   // is correct. It will call renderFeedbackView with different parameters depending 
+//   // on correctness and incrementing the question count by 1 if correct
+//   console.log('`checkAnswer` ran');
+// }
+
+// function updateScore {
+//   // this function is responsible for incrementing the score by 1 and will be 
+//   // called if the correct answer is submitted
+//   score += 1;
+//   console.log('`updateScore` ran');
+// }
+
+// // runs function to generate the quiz when the browser loads
+// function renderQuiz () {
+//   renderStartView();
+// }
+
+// $(renderQuiz);
+
+//question database
 const STORE = [
     {
       question: 'In the original "How the Grinch Stole Christmas", voice actor, Thurl Ravenscroft, performed all of the musical numbers even though Boris Karloff narrated the story.  Ravenscroft also provided the voice of what famous TV commercial character?',
@@ -69,72 +116,3 @@ const STORE = [
           'Ironically, Elmo Shropshire, who was asked to sing \'Grandma Got Run Over By A Reindeer\' by writter, Randy Brooks along with his wife, Patsy, was a licensed veterinarian.'
     },
   ];
-
-// //initialize variables to store current score and question
-let score = 0;
-let questionNum = 0;
-
-function renderChristmasTunesQuiz () {
-  // this function will be responsible for rendering the Christmas Tune Quiz in the DOM
-  console.log('`renderStartView` ran');
-}
-
-function renderQuestionView () {
-  // this function will be responsible for...
-  // hiding the instructions
-  // showing the form with questions and radio answers
-  // changing the class of the button to "js-submit-response" and the button text to "SUBMIT"
-  console.log('`renderQuestionView` ran');
-}
-
-function renderFeedbackView () { 
-  // this function will be responsible for...
-  // hiding the form with questions and radio answers
-  // showing a happy or sad image depending on whether the response is correct
-  // showing "Correct" or "Incorrect" depending on whether the response is correct
-  // showing the correct answer 
-  // changing the class of the button to "js-next-question" and the button text to "NEXT"
-  console.log('`renderFeedbackView` ran');
-}
-
-function renderFinalView () {
-  // this function will be responsible for...
-  // hiding the happy or sad image, "correct"/"incorrect"/, and correct answer
-  // showing a message regarding whether user is knowledgeable or not based on their score
-  // changing the class of the button to "js-restart-quiz" and the button text to "RESTART QUIZ"
-  console.log('`renderFinalView` ran');
-}
-
-// function checkAnswer {
-//   // this function will be responsible for checking whether the submitted answer 
-//   // is correct. It will call renderFeedbackView with different parameters depending 
-//   // on correctness and incrementing the question count by 1 if correct
-//   console.log('`checkAnswer` ran');
-// }
-
-function updateScore () {
-  // this function is responsible for incrementing the score by 1 and will be 
-  // called if the correct answer is submitted
-  score ++;
-  $('.js-questionNum').text(score);
-  console.log('`updateScore` ran');
-};
-
-function updateQuestionNum () {
-  // this function is responsible for incrementing the score by 1 and will be 
-  // called if the correct answer is submitted
-  questionNum ++;
-  $('.js-questionNum').text(questionNum);
-  console.log('`updateScore` ran');
-};
-
-// runs function to generate the quiz when the browser loads
-// function handleChristmasTuneQuiz () {
-//   renderStartView();
-// }
-// $(renderQuiz);
-
-
-
-
-
