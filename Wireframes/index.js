@@ -70,71 +70,126 @@ const STORE = [
     },
   ];
 
+// Performance feedback displayed in Final View based on quiz score
+let rank = [
+  {
+    score: 'low',
+    feedback: 'Based on your Christmas Tunes Trivia knowledge, you seem like a bit of a Scrooge.  Hopefully, you learned something and your love of tunes grew three sizes today - just like the Grinch\'s heart.'
+  },
+  {
+    score: 'average',
+    feedback: 'When it comes to Christmas Tunes Trivia, you\'re an average bear...or, well, reindeer... but you\'ve got potential, kid!'
+  },
+  {
+    score: 'high',
+    feedback: 'Move over Saint Nick, there\'s a new king of Christmas in town!  You must live and breathe the sounds of the season - congratulations!'
+  },
+];
+
 // //initialize variables to store current score and question
 let score = 0;
-let questionNum = 0;
+let questionNum = 1;
 
 function renderChristmasTunesQuiz () {
-  // this function will be responsible for rendering the Christmas Tune Quiz in the DOM
-  console.log('`renderStartView` ran');
+  $('.score-question, .questions, .feedback, .final-view').addClass("js-hide");
+  $('.instructions').removeClass("js-hide");
+  $('button').text('START');
+  $('.js-questionNum').text(questionNum);
+  $('button').click(function () {
+    renderQuestionView();
+  });
+  console.log('`renderChristmasTunesQuiz` ran');
+}
+
+// this function generates what is displayed in the form
+function generateQuestion (currentQuestion) {
+  $('.question').text('Testing question text');
+  $('.ans-1').text('hold answer 1');
+  $('.ans-2').text('hold answer 2');
+  $('.ans-3').text('hold answer 3');
+  $('.ans-4').text('hold answer 4');
+  console.log('`generateQuestion` ran');
 }
 
 function renderQuestionView () {
   // this function will be responsible for...
   // hiding the instructions
+  $('.instructions, .feedback').addClass("js-hide");
+  $('.score-question, .questions').removeClass("js-hide");
+  generateQuestion();
+  $('button').text('SUBMIT');
+  $('button').click(function () {
+    renderFeedbackView();
+  });
   // showing the form with questions and radio answers
   // changing the class of the button to "js-submit-response" and the button text to "SUBMIT"
   console.log('`renderQuestionView` ran');
 }
 
-function renderFeedbackView () { 
-  // this function will be responsible for...
-  // hiding the form with questions and radio answers
-  // showing a happy or sad image depending on whether the response is correct
-  // showing "Correct" or "Incorrect" depending on whether the response is correct
-  // showing the correct answer 
-  // changing the class of the button to "js-next-question" and the button text to "NEXT"
+function renderFeedbackView (isAnswerCorrect) { 
+//   // this function will be responsible for...
+//   // hiding the form with questions and radio answers
+    $('.questions, .final-view').addClass("js-hide");
+    $('.feedback').removeClass("js-hide");
+    $('button').text('NEXT');
+    $('button').click(function () {
+      if (questionNum < STORE.length) {
+        updateQuestionNum();
+        renderQuestionView();
+      } else {
+        renderFinalView ();
+      };
+    })
   console.log('`renderFeedbackView` ran');
 }
 
 function renderFinalView () {
-  // this function will be responsible for...
-  // hiding the happy or sad image, "correct"/"incorrect"/, and correct answer
-  // showing a message regarding whether user is knowledgeable or not based on their score
-  // changing the class of the button to "js-restart-quiz" and the button text to "RESTART QUIZ"
+//   // this function will be responsible for...
+//   // hiding the happy or sad image, "correct"/"incorrect"/, and correct answer
+  $('.feedback').addClass("js-hide");
+  $('.final-view').removeClass("js-hide");
+  $('button').text('PLAY AGAIN');
+  if (score > 4) {
+    $('span.quiz-rank').text('high score');
+  } else if (score > 2) {
+    $('span.quiz-rank').text('medium score');
+  } else {
+    $('span.quiz-rank').text('low score');
+  }
+  $('button').click(function () {
+    questionNum = 1;
+    renderChristmasTunesQuiz()
+  });
   console.log('`renderFinalView` ran');
 }
 
-// function checkAnswer {
-//   // this function will be responsible for checking whether the submitted answer 
-//   // is correct. It will call renderFeedbackView with different parameters depending 
-//   // on correctness and incrementing the question count by 1 if correct
-//   console.log('`checkAnswer` ran');
-// }
+function checkAnswer () {
+// this function will be responsible for checking whether the submitted answer 
+// is correct and passing a yes or no to renderFinalView
+  console.log('`checkAnswer` ran');
+}
 
 function updateScore () {
-  // this function is responsible for incrementing the score by 1 and will be 
-  // called if the correct answer is submitted
+// this function will be called if the correct answer is submitted
   score ++;
-  $('.js-questionNum').text(score);
+  $('.js-score').text(score);
   console.log('`updateScore` ran');
-};
+}
 
 function updateQuestionNum () {
-  // this function is responsible for incrementing the score by 1 and will be 
-  // called if the correct answer is submitted
+// this function is called when the (NEXT) button is clicked in the feedback view
   questionNum ++;
   $('.js-questionNum').text(questionNum);
-  console.log('`updateScore` ran');
-};
+  console.log(questionNum);
+}
 
 // runs function to generate the quiz when the browser loads
-// function handleChristmasTuneQuiz () {
-//   renderStartView();
-// }
-// $(renderQuiz);
+$(renderChristmasTunesQuiz);
 
 
 
-
+// Still need to do...
+// display Q&A's 
+// build function that checks whether the submitted answer is correct
+// fix question counter to increment by 1
 
