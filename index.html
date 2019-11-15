@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <main class="container">
+    <div class="container">
         <header>
             <h1 class="heading blue rounded-corner">Christmas Tunes Quiz</h1>
             <ul class="score-question">
@@ -23,43 +23,35 @@
                     <p> <br> It's the most wonderful time of the year!  Let's see how wonderful your knowledge of Christmas Tune Trivia is.  Press "START" to proceed through a series of six questions and learn fun facts along the way.</p>
                     <img src="QuizPhotos/DJSantaClaus.jpeg" alt="DJ Santa Claus" class="dj-santa">
                 </div>
-                <form class="questions rounded-corner"> <br> 
-                    <legend class="question"></legend> <br>
-                        <input type="radio" name="christmas-tunes-trivia" id="ans-1" value="0" checked>
-                        <label for="ans-1" class="ans-1"></label>
-                        <br>
-                        <input type="radio" name="christmas-tunes-trivia" id="ans-2" value="1">
-                        <label for="ans-2" class="ans-2"></label>
-                        <br>
-                        <input type="radio" name="christmas-tunes-trivia" id="ans-3" value="2">
-                        <label for="ans-3" class="ans-3"></label>
-                        <br>
-                        <input type="radio" name="christmas-tunes-trivia" id="ans-4" value="3">
-                        <label for="ans-4" class="ans-4"></label>
-                </form>
-                <div class='feedback'>
-                    <div class="correct">
-                        <img src="QuizPhotos/HappyTree.jpg" alt="happy Christmas tree" class="feedback-photo">
-                        <p> Correct! </p>
-                    </div>
-                    <div class="incorrect">
-                        <img src="QuizPhotos/SadTree.jpeg" alt="sad Christmas tree" class="feedback-photo">
-                        <p> Incorrect! </p>
-                    </div>
-                    <p><span class="correct-answer"> The correct answer with explanation. </span></p>
+                <div class="questions rounded-corner"> <br> 
                 </div>
-                <div class='final-view rounded-corner'>
-                    <img src="QuizPhotos/SantaClausWithHeadphones.jpg" class="final-santa" alt="Santa Claus wearing headphones">
-                    <p> HO HO HO! Thanks for playing. <span class="quiz-rank"> Insert feedback here based on score. </span></p>
+                <div class='feedback'>
+                    <div class="feedback correct">
+                        <img src="QuizPhotos/HappyTree.jpg" alt="happy Christmas tree" class="feedback-photo">
+                        <p class='rounded-corner correctness'> Correct! </p>
+                    </div>
+                    <div class="feedback incorrect">
+                        <img src="QuizPhotos/SadTree.jpeg" alt="sad Christmas tree" class="feedback-photo">
+                        <p class='rounded-corner correctness'> Incorrect! </p>
+                    </div>
+                    <p class="correct-answer rounded-corner"><span class="js-correct-answer"> The correct answer with explanation. </span></p>
+                </div>
+                <div class='rounded-corner final-view'>
+                    <p class="js-final-score"></p>
+                    <p class="js-final-view"></p>
                 </div>
             </section>
-            <button role="button" class="button blue rounded-corner"> </button>
-    </main>
+            <section class=buttons>
+                <button role="button" class="button js-start-button blue rounded-corner"> START </button>
+                <button role="button" class="button js-next-button blue rounded-corner"> NEXT </button>
+                <button role="button" class="button js-submit-button blue rounded-corner"> SUBMIT </button>
+                <button role="button" class="button js-replay-button blue rounded-corner"> REPLAY </button>
+            </section>
+        </main>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="Wireframes/index.js"></script>
 </body>
 </html>
-
-<!-- correct-answer rounded-corner  -->
 
