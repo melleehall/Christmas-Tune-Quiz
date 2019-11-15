@@ -49,7 +49,7 @@ const STORE = [
         'All three songs were originally criticized by Top 40 radio personality "Big Daddy" Tom Donahue for plagarism.'
       ],
       correctIndex: 
-        'All three songs were written by a Jewish man.',
+        2,
       correctExplanation:
         'Johnny Marks is most famously remembered for writing all three songs.  He was Jewish and not exactly thrilled about this being his claim to fame.  He got his first songwriting gig, because his brother-in-law wrote the original Rudolf story.'
   },
@@ -102,9 +102,10 @@ let score = 0;
 let questionNum = 0;
 
 function updateScore () {
-  score ++;
+  score++;
   $('.js-score').text(score);
-  console.log('`updateScore` ran');
+  console.log('the `updateScore` function ran');
+  console.log(score);
 }
 
 function updateQuestionNum () {
@@ -117,9 +118,9 @@ function updateQuestionNum () {
 function renderChristmasTunesQuiz () {
   $('.questions, .score-question, .feedback, .final-view, .js-next-button, .js-submit-button, .js-replay-button').addClass('js-hide');
   $('.instructions, .js-start-button').removeClass("js-hide");
-  $('button.js-start-button').click(function () {
-    renderQuestionView();
-  });
+  // $('button.js-start-button').click(function () {
+  //   renderQuestionView();
+  // });
   console.log('`renderChristmasTunesQuiz` ran');
 }
 
@@ -151,10 +152,10 @@ function renderQuestionView () {
   $('.questions').empty();
   updateQuestionNum();
   generateQuestion();
-  $('button.js-submit-button').click(function () {
-    event.preventDefault();
-    renderFeedbackView();
-  });
+  // $('button.js-submit-button').click(function () {
+  //   event.preventDefault();
+  //   renderFeedbackView();
+  // });
   console.log('`renderQuestionView` ran');
 }
 
@@ -179,14 +180,14 @@ function renderFeedbackView () {
   $('.instructions, .questions, .final-view, .js-start-button, .js-submit-button, .js-replay-button').addClass('js-hide');
   $('score-question, .feedback, .js-next-button').removeClass("js-hide");
   generateFeedback();
-  $('button.js-next-button').click(function () {
-    if (questionNum <= STORE.length) {
-      console.log(`'STORE' length is`);
-      renderQuestionView ();
-    } else {
-      renderFinalView ();
-    }
-  });
+  // $('button.js-next-button').click(function () {
+  //   if (questionNum <= STORE.length) {
+  //     console.log(`'STORE' length is`);
+  //     renderQuestionView ();
+  //   } else {
+  //     renderFinalView ();
+  //   }
+  // });
   console.log(`'renderFeedbackView' ran`);
 }
 
@@ -222,14 +223,41 @@ function renderFinalView () {
   $('.instructions, .questions, .feedback, .final-view, .js-start-button, .js-submit-button, .js-next-button').addClass('js-hide');
   $('.score-question, .final-view, .js-replay-button').removeClass("js-hide");
   generateFinalRank();
-  $('button.js-replay-button').click(function () {
-    replayQuiz();
-  });
+  // $('button.js-replay-button').click(function () {
+  //   replayQuiz();
+  // });
 }
 
 function makeQuiz () {
   renderChristmasTunesQuiz();
 }
 
-$(makeQuiz);
+function eventHandlers () {
+  $('button.js-start-button').click(function () {
+    renderQuestionView();
+  });
 
+  $('button.js-submit-button').click(function () {
+    event.preventDefault();
+    renderFeedbackView();
+  });
+
+  $('button.js-next-button').click(function () {
+    if (questionNum < STORE.length) {
+      renderQuestionView ();
+    } else {
+      renderFinalView ();
+    }
+  });
+
+  $('button.js-replay-button').click(function () {
+    replayQuiz();
+  });
+}
+
+function initializeApp () {
+  makeQuiz();
+  eventHandlers();
+}
+
+$(initializeApp);
